@@ -11,7 +11,7 @@
     <groupId>org.data</groupId>
     <artifactId>Dummy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>Dummy</name>
     <description>Sample Spring Boot application to use SAP HANA Service</description>
 
