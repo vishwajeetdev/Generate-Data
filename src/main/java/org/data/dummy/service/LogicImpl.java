@@ -110,4 +110,16 @@ public class LogicImpl implements Logic {
     }
 
 
+    public Map<Long, List<PersonalData>> get10Rows() {
+
+
+        Map<Long, List<PersonalData>> data = new HashMap<>();
+
+        data.put(studentPersonalDataDao.getCount(), studentPersonalDataDao.get10Rows());
+        return data;
+
+
+    }
+
+
 }
