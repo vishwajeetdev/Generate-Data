@@ -22,13 +22,11 @@ public class StudentController {
     }
 
 
-    @PostMapping("/create/{no}")
+    @GetMapping("/create/{no}")
     public String createTable(@PathVariable int no) {
 
-        String time = logic.createTable(no);
 
-
-        return time;
+        return logic.createTable(no);
     }
 
     @GetMapping
