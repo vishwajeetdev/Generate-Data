@@ -1,6 +1,7 @@
 package org.data.dummy.service;
 
 
+import com.fasterxml.jackson.databind.*;
 import jakarta.persistence.*;
 import jakarta.transaction.*;
 import lombok.*;
@@ -20,8 +21,6 @@ import java.util.concurrent.*;
 public class LogicImpl implements Logic {
 
 
-    @PersistenceContext
-    private EntityManager entityManager;
 
 
     private Microservices microservices;
@@ -76,7 +75,7 @@ public class LogicImpl implements Logic {
     }
 
 
-    @Transactional
+
     void savePersonalised(int num) {
 
         List<PersonalData> data = new ArrayList<>();
@@ -92,17 +91,8 @@ public class LogicImpl implements Logic {
             flag = true;
 
         }
-        for (int i = 0; i < data.size(); i++) {
-            entityManager.persist(data.get(i));
 
-            if (i % 10 == 0 && i > 0) {
-                entityManager.flush();
-                entityManager.clear();
-            }
-        }
-
-        entityManager.flush();
-        entityManager.clear();
+        studentPersonalDataDao.saveAll(data);
 
         rowInserted += num;
 
